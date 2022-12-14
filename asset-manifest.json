@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-03-image-finder/static/css/main.4ed85de1.css",
-    "main.js": "/goit-react-hw-03-image-finder/static/js/main.19ddbcb9.js",
-    "static/media/fon-37.jpg": "/goit-react-hw-03-image-finder/static/media/fon-37.ae43e67a2a86e6288d41.jpg",
+    "main.css": "/goit-react-hw-03-image-finder/static/css/main.7acaea2f.css",
+    "main.js": "/goit-react-hw-03-image-finder/static/js/main.b5c8dee1.js",
     "index.html": "/goit-react-hw-03-image-finder/index.html",
-    "main.4ed85de1.css.map": "/goit-react-hw-03-image-finder/static/css/main.4ed85de1.css.map",
-    "main.19ddbcb9.js.map": "/goit-react-hw-03-image-finder/static/js/main.19ddbcb9.js.map"
+    "main.7acaea2f.css.map": "/goit-react-hw-03-image-finder/static/css/main.7acaea2f.css.map",
+    "main.b5c8dee1.js.map": "/goit-react-hw-03-image-finder/static/js/main.b5c8dee1.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ed85de1.css",
-    "static/js/main.19ddbcb9.js"
+    "static/css/main.7acaea2f.css",
+    "static/js/main.b5c8dee1.js"
   ]
 }
