@@ -1,3 +1,4 @@
+import { ImageGallery } from "components/ImageGallery/ImageGallery";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import React, {Component} from "react";
 
@@ -11,6 +12,7 @@ class App extends Component {
       
       <>
         <Searchbar></Searchbar>
+        <ImageGallery />
         React homework Image-Finder
       </>
     )
