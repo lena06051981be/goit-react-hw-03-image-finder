@@ -1,3 +1,4 @@
+import { Searchbar } from "components/Searchbar/Searchbar";
 import React, {Component} from "react";
 
 class App extends Component {
@@ -7,7 +8,9 @@ class App extends Component {
     console.log()
 
     return (
+      
       <>
+        <Searchbar></Searchbar>
         React homework Image-Finder
       </>
     )
