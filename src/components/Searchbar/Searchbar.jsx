@@ -1,18 +1,20 @@
+import { Component } from 'react';
 
-export const Searchbar = () => (
+export const Searchbar = ({ onSubmit  }) => {
+  return (
     <header className="searchbar">
-  <form className="form">
-    <button type="submit" className="button">
-      <span className="button-label">Search</span>
-    </button>
+      <form onSubmit={onSubmit }>
+        <button type="submit" >
+          <span className="button-label">Search</span>
+        </button>
 
-    <input
-      className="input"
-      type="text"
-      autoComplete="off"
-      autoFocus
-      placeholder="Search images and photos"
-    />
-  </form>
-</header>
-)
+        <input          
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          name="search"
+        />
+      </form>
+    </header>
+)}
