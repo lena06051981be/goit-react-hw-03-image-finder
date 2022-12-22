@@ -49,6 +49,7 @@ export class App extends Component {
 
     this.setState({ loading: true });
     const res = await getImages(value, page);
+    console.log(res);
     this.setState({ loading: false });
 
     if (res.hits.length === 0) {
