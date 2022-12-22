@@ -76,7 +76,8 @@ export class App extends Component {
   };
 
   render() {
-    const { images, selectedImg, modalImgAlt } = this.state;
+    // const { images, selectedImg, modalImgAlt } = this.state;
+    const { images } = this.state;
 
     return (
       <>
