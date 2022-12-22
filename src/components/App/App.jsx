@@ -1,4 +1,4 @@
-// import { ImageGallery } from "components/ImageGallery/ImageGallery";
+import { ImageGallery } from "components/ImageGallery/ImageGallery";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import { Component } from "react";
 import { getImages } from '../../services/ApiService'
@@ -12,6 +12,8 @@ export class App extends Component {
     page: 1,  
     totalPages: null,
     loading: false,
+    selectedImg: null,
+    modalImgAlt: '',
   };
 
   async componentDidUpdate(_, prevState) {
@@ -69,11 +71,20 @@ export class App extends Component {
     });
   };
 
+  selectImg = (imgUrl, altTag) => {
+    this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
+  };
+
   render() {
+    const { images, selectedImg, modalImgAlt } = this.state;
 
     return (
       <>
         <Searchbar onSubmit={this.onSubmit} />
+        <ImageGallery
+              images={images}
+              onSelect={this.selectImg}
+        ></ImageGallery>  
       </>
     )
   }
@@ -168,10 +179,10 @@ export class App extends Component {
 //         <Searchbar onFormSubmit={this.handleSubmit}></Searchbar> 
 //         {images !== [] ? (
 //           <React.Fragment>
-//             <ImageGallery
-//               images={images}
-//               onSelect={this.selectImg}
-//             ></ImageGallery>            
+            // <ImageGallery
+            //   images={images}
+            //   onSelect={this.selectImg}
+            // ></ImageGallery>            
 //           </React.Fragment>
 //         ) : null}
 

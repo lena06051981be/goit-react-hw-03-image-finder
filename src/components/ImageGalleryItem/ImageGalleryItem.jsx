@@ -9,8 +9,8 @@
 export const ImageGalleryItem = ({ image, onSelect }) => {
   return (
     <img
-    src="xuy"
-    alt="xuy"
+    src={image.webformatURL}
+    alt={image.tags}
     onClick={() => onSelect(image.largeImageURL, image.tags)}
     loading="lazy"
     />
