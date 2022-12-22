@@ -5,6 +5,8 @@ import { getImages } from '../../services/ApiService'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import Loader from "components/Loader/Loader";
+import Button from "components/Button/Button";
 
 export class App extends Component {
   state = {
@@ -82,6 +84,20 @@ export class App extends Component {
     });
   };  
 
+  loadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
+  };
+
+  scroll = () => {
+    const { clientHeight } = document.documentElement;
+    window.scrollBy({
+      top: clientHeight - 180,
+      behavior: 'smooth',
+    });
+  };
+
  
 
   // selectImg = (imgUrl, altTag) => {
@@ -96,16 +112,23 @@ export class App extends Component {
   // };
 
   render() {
-    // const { images, selectedImg, modalImgAlt } = this.state;
-    const { images } = this.state;
+    const { images, loading, totalPages, page } = this.state;
+    // const { images } = this.state;
+    const isNotEmpty = images.length !== 0;
+    const isNotEndList = page < totalPages;
 
     return (
       <>
         <Searchbar onSubmit={this.onSubmit} />
-        <ImageGallery
+        {isNotEmpty && <ImageGallery
               images={images}
               // onSelect={this.selectImg}
-        ></ImageGallery>  
+        ></ImageGallery> } 
+        {loading ? (
+          <Loader />
+        ) : (
+          isNotEmpty && isNotEndList && <Button onClick={this.loadMore} />
+        )}
       </>
     )
   }
