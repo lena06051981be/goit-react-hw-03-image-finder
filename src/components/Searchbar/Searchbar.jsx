@@ -1,5 +1,3 @@
-// import { Component } from 'react';
-
 export const Searchbar = ({ onSubmit  }) => {
   return (
     <header className="searchbar">

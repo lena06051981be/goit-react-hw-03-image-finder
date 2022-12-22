@@ -6,15 +6,19 @@
 //     </li>
 // )
 
-export const ImageGalleryItem = ({ image, onSelect }) => {
-  return (
-    <img
-    src={image.webformatURL}
-    alt={image.tags}
-    onClick={() => onSelect(image.largeImageURL, image.tags)}
-    loading="lazy"
-    />
-  );
+export const ImageGalleryItem = ({ images }) => {
+  return images.map((image) => (
+      <li key={image.id}>
+        <a href={image.largeImageURL}>
+          <img
+          src={image.webformatURL}
+          alt={image.tags}
+          // onClick={() => onSelect(image.largeImageURL, image.tags)}
+          loading="lazy"
+          />
+        </a>
+      </li>  
+  ));
 };
 
   // ImageGalleryItem.propTypes = {

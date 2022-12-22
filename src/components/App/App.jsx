@@ -3,7 +3,8 @@ import { Searchbar } from "components/Searchbar/Searchbar";
 import { Component } from "react";
 import { getImages } from '../../services/ApiService'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export class App extends Component {
   state = {
@@ -16,8 +17,17 @@ export class App extends Component {
     modalImgAlt: '',
   };
 
+  simpleLightbox = () => {
+    var lightbox = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 150,
+    });
+    lightbox.refresh();
+  };
+
   async componentDidUpdate(_, prevState) {
     const { query, page, totalPages, images } = this.state;
+    this.simpleLightbox();      
 
     if (prevState.page !== page && page !== 1) {
       this.setState({ loading: true });
@@ -38,6 +48,7 @@ export class App extends Component {
       );
     }
   }
+
   onSubmit = async evt => {
     evt.preventDefault();
     const input = evt.target.elements.search;
@@ -69,11 +80,20 @@ export class App extends Component {
       page,
       totalPages: totalPages,
     });
-  };
+  };  
 
-  selectImg = (imgUrl, altTag) => {
-    this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
-  };
+ 
+
+  // selectImg = (imgUrl, altTag) => {
+  //   this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
+  // };
+
+  // closeModal = () => {
+  //   this.setState({
+  //     selectedImg: '',
+  //     modalImgAlt: '',
+  //   });
+  // };
 
   render() {
     // const { images, selectedImg, modalImgAlt } = this.state;
@@ -84,7 +104,7 @@ export class App extends Component {
         <Searchbar onSubmit={this.onSubmit} />
         <ImageGallery
               images={images}
-              onSelect={this.selectImg}
+              // onSelect={this.selectImg}
         ></ImageGallery>  
       </>
     )

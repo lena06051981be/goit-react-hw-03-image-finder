@@ -1,14 +1,12 @@
 import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem";
 
-export const ImageGallery = ({ images, onSelect }) => {
+export const ImageGallery = ({ images }) => {
   return (
-    <ul>      
-      {images.map((image, id) => (
-        <li key={id}>
-          <ImageGalleryItem image={image} onSelect={onSelect} />
-        </li>
-      ))}
-    </ul>
+    <div className="gallery">
+      <ul>     
+          <ImageGalleryItem images={images} />
+      </ul>
+    </div>
   );
 };
 
