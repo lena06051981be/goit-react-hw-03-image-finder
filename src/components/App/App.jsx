@@ -33,7 +33,9 @@ export class App extends Component {
     this.simpleLightbox(); 
     console.log('prevState.page: ', prevState.page);
     console.log('this.state.page: ', this.state.page);
-         
+
+    console.log('prevState.query: ', prevState.query);
+    console.log('this.state.query: ', this.state.query);         
 
     if (prevState.page !== page && page !== 1) {
       this.setState({ loading: true });
@@ -63,6 +65,7 @@ export class App extends Component {
 
     if (value === '') {
       toast.success('Please, enter another search value!');
+      this.setState({ images: [] });
       return;
     }
 
@@ -74,7 +77,8 @@ export class App extends Component {
     if (res.hits.length === 0) {
       toast.success(
         'Sorry, there are no images matching your search query. Please try again.'
-      )      
+      );
+      this.setState({ images: [] });
       return;
     }
 
@@ -90,7 +94,7 @@ export class App extends Component {
 
   loadMore = () => {
     this.setState(prevState => ({
-      page: prevState.page + 1,
+      page: prevState.page + 1,      
     }));
   };
 
@@ -100,9 +104,7 @@ export class App extends Component {
       top: clientHeight - 180,
       behavior: 'smooth',
     });
-  };
-
- 
+  }; 
 
   // selectImg = (imgUrl, altTag) => {
   //   this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
@@ -117,31 +119,26 @@ export class App extends Component {
 
   render() {
     const { images, loading, totalPages, page } = this.state;
-    // const { images } = this.state;
-    const isNotEmpty = images.length !== 0;
-    const isNotEndList = page < totalPages;
+    const checkEndList = page < totalPages;
+    const checkGalleryImg = images.length !== 0;
+    
 
     return (
       <>
         <Searchbar onSubmit={this.onSubmit} />
-        {isNotEmpty && <ImageGallery
+        {checkGalleryImg && <ImageGallery
               images={images}
               // onSelect={this.selectImg}
         ></ImageGallery> } 
         {loading ? (
           <Loader />
         ) : (
-          isNotEmpty && isNotEndList && <Button onClick={this.loadMore} />
+          checkGalleryImg && checkEndList && <Button onClick={this.loadMore} />
         )}
         <ToastContainer autoClose={2000} position="top-left" theme="light" />
       </>
     )
   }
-
-
-  
-
-
 }
   
 
