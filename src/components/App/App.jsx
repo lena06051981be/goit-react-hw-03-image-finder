@@ -8,6 +8,8 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Loader from "components/Loader/Loader";
 import Button from "components/Button/Button";
+import Container from './App.styled';
+
 
 export class App extends Component {
   state = {
@@ -124,7 +126,7 @@ export class App extends Component {
     
 
     return (
-      <>
+      <Container>
         <Searchbar onSubmit={this.onSubmit} />
         {checkGalleryImg && <ImageGallery
               images={images}
@@ -135,8 +137,8 @@ export class App extends Component {
         ) : (
           checkGalleryImg && checkEndList && <Button onClick={this.loadMore} />
         )}
-        <ToastContainer autoClose={2000} position="top-left" theme="light" />
-      </>
+        <ToastContainer autoClose={2000} position="top-center" theme="light" />
+      </Container>
     )
   }
 }
