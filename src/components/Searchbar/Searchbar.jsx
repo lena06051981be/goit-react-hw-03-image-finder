@@ -11,8 +11,8 @@ export const Searchbar = ({ onSubmit  }) => {
   return (
     <SearchBarHeader className="searchbar">
       <SearchForm onSubmit={onSubmit }>
-        <SearchFormBtn type="submit" >         
-            <FcSearch style={{ width: 24, height: 24 }} /> Search          
+        <SearchFormBtn type="submit" >                 
+            <FcSearch style={{ width: 24, height: 24 }} /> Search                  
         </SearchFormBtn>
 
         <SearchFormInput          
