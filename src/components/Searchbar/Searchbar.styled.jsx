@@ -48,6 +48,7 @@ export const SearchFormBtn = styled.button`
 `
 export const SearchFormInput = styled.input`
   display: inline-block;
+  height: 34px;
   width: 100%;
   font: inherit;
   font-size: 20px;
