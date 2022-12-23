@@ -30,7 +30,12 @@ export class App extends Component {
 
   async componentDidUpdate(_, prevState) {
     const { query, page, totalPages, images } = this.state;
-    this.simpleLightbox();      
+    this.simpleLightbox(); 
+    console.log('prevState.page: ', prevState.page);
+    console.log('this.state.page: ', this.state.page);
+    
+    console.log('prevState.query: ', prevState.query);
+    console.log('this.state.query: ', this.state.query);
 
     if (prevState.page !== page && page !== 1) {
       this.setState({ loading: true });
