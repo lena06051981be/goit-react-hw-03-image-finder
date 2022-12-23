@@ -16,7 +16,8 @@ export const SearchBarHeader = styled.header`
   color: #fff;
   background-color: #3f51b5;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 `
 export const SearchForm = styled.form`
   display: flex;
