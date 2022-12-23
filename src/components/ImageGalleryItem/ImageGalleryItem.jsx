@@ -1,4 +1,5 @@
-import { GalleryItem } from './ImageGalleryItem.styled'
+import { GalleryItem } from './ImageGalleryItem.styled';
+import './ImageGalleryItem.css';
 
 // import PropTypes from 'prop-types';
 
@@ -10,16 +11,17 @@ import { GalleryItem } from './ImageGalleryItem.styled'
 
 export const ImageGalleryItem = ({ images }) => {
   return images.map((image) => (
-      <GalleryItem key={image.id}>
-        <a href={image.largeImageURL}>
+      <li className="photo-card" key={image.id}>
+        <a className="img-wrap" href={image.largeImageURL}>
           <img
+          className='image'
           src={image.webformatURL}
           alt={image.tags}
           // onClick={() => onSelect(image.largeImageURL, image.tags)}
           loading="lazy"
           />
         </a>
-      </GalleryItem>  
+      </li>  
   ));
 };
 
