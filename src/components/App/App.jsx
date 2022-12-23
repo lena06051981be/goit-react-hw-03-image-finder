@@ -1,7 +1,7 @@
 import { ImageGallery } from "components/ImageGallery/ImageGallery";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import { Component } from "react";
-import { getImages } from '../../services/ApiService'
+import { getImagesApi } from '../../services/ApiService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SimpleLightbox from 'simplelightbox';
@@ -33,13 +33,11 @@ export class App extends Component {
     this.simpleLightbox(); 
     console.log('prevState.page: ', prevState.page);
     console.log('this.state.page: ', this.state.page);
-    
-    console.log('prevState.query: ', prevState.query);
-    console.log('this.state.query: ', this.state.query);
+         
 
     if (prevState.page !== page && page !== 1) {
       this.setState({ loading: true });
-      const res = await getImages(query, page);
+      const res = await getImagesApi(query, page);
       console.log(res);
 
       this.setState(({ images }) => ({
@@ -69,7 +67,7 @@ export class App extends Component {
     }
 
     this.setState({ loading: true });
-    const res = await getImages(value, page);
+    const res = await getImagesApi(value, page);
     console.log(res);
     this.setState({ loading: false });
 
