@@ -7,7 +7,7 @@ export const Searchbar = ({ onSubmit  }) => {
       <form onSubmit={onSubmit }>
         <button type="submit" >
           <span className="button-label">
-            <FcSearch style={{ width: 24, height: 24 }} />Search
+            <FcSearch style={{ width: 24, height: 24 }} /> Search
           </span>
         </button>
 
