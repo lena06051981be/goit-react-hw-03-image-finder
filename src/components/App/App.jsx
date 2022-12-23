@@ -2,7 +2,8 @@ import { ImageGallery } from "components/ImageGallery/ImageGallery";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import { Component } from "react";
 import { getImages } from '../../services/ApiService'
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Loader from "components/Loader/Loader";
@@ -45,7 +46,7 @@ export class App extends Component {
     }
 
     if (page >= totalPages && images !== prevState.images) {
-      Notify.warning(
+      toast.warning(
         "We're sorry, but you've reached the end of search results."
       );
     }
@@ -58,7 +59,7 @@ export class App extends Component {
     const page = 1;
 
     if (value === '') {
-      Notify.warning("You didn't enter anything!");
+      toast.success('Please, enter another search value!');
       return;
     }
 
@@ -68,9 +69,9 @@ export class App extends Component {
     this.setState({ loading: false });
 
     if (res.hits.length === 0) {
-      Notify.failure(
+      toast.success(
         'Sorry, there are no images matching your search query. Please try again.'
-      );
+      )      
       return;
     }
 
@@ -129,6 +130,7 @@ export class App extends Component {
         ) : (
           isNotEmpty && isNotEndList && <Button onClick={this.loadMore} />
         )}
+        <ToastContainer autoClose={2000} position="top-left" theme="light" />
       </>
     )
   }
