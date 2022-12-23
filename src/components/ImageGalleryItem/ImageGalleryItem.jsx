@@ -1,4 +1,4 @@
-import { GalleryItem } from './ImageGalleryItem.styled';
+// import { GalleryItem } from './ImageGalleryItem.styled';
 import './ImageGalleryItem.css';
 
 // import PropTypes from 'prop-types';
