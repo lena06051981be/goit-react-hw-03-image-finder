@@ -16,8 +16,8 @@ export class App extends Component {
     page: 1,  
     totalPages: null,
     loading: false,
-    selectedImg: null,
-    modalImgAlt: '',
+    // selectedImg: null,
+    // modalImgAlt: '',
   };
 
   simpleLightbox = () => {
