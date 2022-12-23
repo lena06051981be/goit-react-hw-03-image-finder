@@ -1,7 +1,6 @@
 // import { GalleryItem } from './ImageGalleryItem.styled';
 import './ImageGalleryItem.css';
-
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // export const ImageGalleryItem = () => (
 //     <li className="gallery-item">
@@ -25,8 +24,13 @@ export const ImageGalleryItem = ({ images }) => {
   ));
 };
 
-  // ImageGalleryItem.propTypes = {
-  //   largeImageURL: PropTypes.string,
-  //   webformatURL: PropTypes.string,
-  //   tags: PropTypes.string,
-  // };
+ImageGalleryItem.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+    })
+  ),
+};
