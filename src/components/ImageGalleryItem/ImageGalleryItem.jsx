@@ -1,3 +1,5 @@
+import { GalleryItem } from './ImageGalleryItem.styled'
+
 // import PropTypes from 'prop-types';
 
 // export const ImageGalleryItem = () => (
@@ -8,7 +10,7 @@
 
 export const ImageGalleryItem = ({ images }) => {
   return images.map((image) => (
-      <li key={image.id}>
+      <GalleryItem key={image.id}>
         <a href={image.largeImageURL}>
           <img
           src={image.webformatURL}
@@ -17,7 +19,7 @@ export const ImageGalleryItem = ({ images }) => {
           loading="lazy"
           />
         </a>
-      </li>  
+      </GalleryItem>  
   ));
 };
 
