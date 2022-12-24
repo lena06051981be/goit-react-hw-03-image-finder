@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GalleryItem = styled.li`
   position: relative;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 1), -23px 0 20px -23px rgba(0, 0, 0, 0.8),
     23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -42,7 +42,7 @@ export const GalleryInfo = styled.div`
 
   color: #fafafa;
   background-color: rgba(93, 93, 93, 0.618);
-  z-index: 100;
+  /* z-index: 100; */ /* хм, интересно)) перебил портал и вылез вперед)) */  
 `
 export const GalleryInfoItem = styled.p`
   display: flex;
