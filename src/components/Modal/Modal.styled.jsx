@@ -10,8 +10,8 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-
-  z-index: 1200; /* зачем он здесь нужен? если модалка на портале работает */
+  
+  /* z-index: 1200; */ /* не нужен, если модалка на портале работает */
   
 `
 export const ModalWrap = styled.div`

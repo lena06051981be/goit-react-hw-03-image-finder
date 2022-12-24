@@ -1,16 +1,16 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 
-// import { createPortal } from 'react-dom'; //делаем запись в public <div id="modal-root"></div>
+import {createPortal} from 'react-dom'; //делаем запись в public <div id="modal-root"></div>
 
 import { Overlay, ModalWrap } from './Modal.styled';
 
-// const modalRoot = document.querySelector('#modal_root');
+const modalRoot = document.querySelector('#modal-root')
 
 export default class Modal extends Component {
   componentDidMount() {
     console.log('Modal componentDidMount');
-    // document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
@@ -27,9 +27,9 @@ export default class Modal extends Component {
   };
 
   handleBackdropClick = event => {
-    console.log('Кликнули в бекдроп');
-    console.log('currentTarget: ', event.currentTarget);
-    console.log('target: ', event.target);
+    // console.log('Кликнули в бекдроп');
+    // console.log('Кликнули в currentTarget: ', event.currentTarget);
+    // console.log('Кликнули в target: ', event.target);
 
     if (event.currentTarget === event.target) {
       this.props.onClose();
@@ -37,16 +37,15 @@ export default class Modal extends Component {
   };
 
   render() {
-    // return createPortal(
-    return (
+    return createPortal(
       <Overlay onClick={this.handleBackdropClick}>
         <ModalWrap>{this.props.children}</ModalWrap>
-      </Overlay>
-       );
-      // modalRoot   
+      </Overlay>,
+      modalRoot,
+    )    
   }
 }
 
-// Modal.propTypes = {
-//   children: PropTypes.node,
-// };
+Modal.propTypes = {
+  children: PropTypes.node,
+};
