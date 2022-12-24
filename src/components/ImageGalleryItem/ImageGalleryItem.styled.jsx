@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const GalleryItem = styled.li`
+  position: relative;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 1), -23px 0 20px -23px rgba(0, 0, 0, 0.8),
@@ -18,7 +19,7 @@ export const GalleryItem = styled.li`
 export const GalleryImage = styled.img`
   width: 100%;
   height: 260px;
-  overflow: hidden;
+  /* overflow: hidden; */
   object-fit: cover;
   transition: transform 250ms linear;
 
@@ -26,3 +27,30 @@ export const GalleryImage = styled.img`
         transform: scale(1.01);
     }
 `
+export const GalleryInfo = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-bottom: 1px solid #212121;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  color: #fafafa;
+  background-color: rgba(93, 93, 93, 0.618);
+  z-index: 100;
+`
+export const GalleryInfoItem = styled.p`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  margin: 0;
+`
+
+
