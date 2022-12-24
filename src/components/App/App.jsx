@@ -100,8 +100,8 @@ export class App extends Component {
     });
   }; 
 
-  selectImg = (imgUrl, altTag) => {
-    this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
+  selectImg = (largeImageURL, altTag) => {
+    this.setState({ selectedImg: largeImageURL, modalImgAlt: altTag });    
   };
 
   closeModal = () => {
