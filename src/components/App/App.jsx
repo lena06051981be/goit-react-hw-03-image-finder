@@ -4,11 +4,12 @@ import { Component } from "react";
 import { getImagesApi } from '../../services/ApiService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+// import SimpleLightbox from 'simplelightbox';
+// import 'simplelightbox/dist/simple-lightbox.min.css';
 import Loader from "components/Loader/Loader";
 import Button from "components/Button/Button";
 import Container from './App.styled';
+import Modal from "components/Modal/Modal";
 
 
 
@@ -19,26 +20,27 @@ export class App extends Component {
     page: 1,  
     totalPages: null,
     loading: false,
-    // selectedImg: null,
-    // modalImgAlt: '',
+    selectedImg: null,
+    modalImgAlt: '',
   };
 
-  simpleLightbox = () => {
-    var lightbox = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 150,
-    });
-    lightbox.refresh();
-  };
+  // simpleLightbox = () => {
+  //   var lightbox = new SimpleLightbox('.gallery a', {
+  //     captionsData: 'alt',
+  //     captionDelay: 150,
+  //   });
+  //   lightbox.refresh();
+  // };
 
   async componentDidUpdate(_, prevState) {
     const { query, page, totalPages, images } = this.state;
-    this.simpleLightbox(); 
-    console.log('prevState.page: ', prevState.page);
-    console.log('this.state.page: ', this.state.page);
+    // this.simpleLightbox(); 
 
-    console.log('prevState.query: ', prevState.query);
-    console.log('this.state.query: ', this.state.query);         
+    // console.log('prevState.page: ', prevState.page);
+    // console.log('this.state.page: ', this.state.page);
+
+    // console.log('prevState.query: ', prevState.query);
+    // console.log('this.state.query: ', this.state.query);         
 
     if (prevState.page !== page && page !== 1) {
       this.setState({ loading: true });
@@ -109,19 +111,19 @@ export class App extends Component {
     });
   }; 
 
-  // selectImg = (imgUrl, altTag) => {
-  //   this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
-  // };
+  selectImg = (imgUrl, altTag) => {
+    this.setState({ selectedImg: imgUrl, modalImgAlt: altTag });
+  };
 
-  // closeModal = () => {
-  //   this.setState({
-  //     selectedImg: '',
-  //     modalImgAlt: '',
-  //   });
-  // };
+  closeModal = () => {
+    this.setState({
+      selectedImg: '',
+      modalImgAlt: '',
+    });
+  };
 
   render() {
-    const { images, loading, totalPages, page } = this.state;
+    const { images, loading, totalPages, page, selectedImg, modalImgAlt } = this.state;
     const checkEndList = page < totalPages;
     const checkGalleryImg = images.length !== 0;
     
@@ -131,12 +133,18 @@ export class App extends Component {
         <Searchbar onSubmit={this.onSubmit} />
         {checkGalleryImg && <ImageGallery
               images={images}
-              // onSelect={this.selectImg}
+              onSelect={this.selectImg}
         ></ImageGallery> } 
         {loading ? (
           <Loader />
         ) : (
           checkGalleryImg && checkEndList && <Button onClick={this.loadMore} />
+        )}
+
+        {selectedImg && (
+          <Modal onClose={this.closeModal}>
+            <img src={selectedImg} alt={modalImgAlt} />
+          </Modal>
         )}
         <ToastContainer autoClose={2000} position="top-center" theme="light" />
       </Container>

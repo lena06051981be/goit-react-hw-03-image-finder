@@ -8,18 +8,16 @@ import PropTypes from 'prop-types';
 //     </li>
 // )
 
-export const ImageGalleryItem = ({ images }) => {
+export const ImageGalleryItem = ({ images, onSelect }) => {
   return images.map((image) => (
-      <li className="photo-card" key={image.id}>
-        <a className="img-wrap" href={image.largeImageURL}>
+      <li className="photo-card" key={image.id}>        
           <img
           className='image'
           src={image.webformatURL}
           alt={image.tags}
-          // onClick={() => onSelect(image.largeImageURL, image.tags)}
+          onClick={() => onSelect(image.largeImageURL, image.tags)}
           loading="lazy"
-          />
-        </a>
+          />        
       </li>  
   ));
 };
