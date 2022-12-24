@@ -44,7 +44,7 @@ export class App extends Component {
       setTimeout(() => this.scroll(), 1);
     }
 
-    if (page >= totalPages && images !== prevState.images && images === [] ) {
+    if (page >= totalPages && images !== prevState.images ) {
       toast.warning(
         "We're sorry, but you've reached the end of search results."
       );
