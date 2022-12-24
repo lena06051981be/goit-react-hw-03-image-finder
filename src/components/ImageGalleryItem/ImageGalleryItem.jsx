@@ -9,7 +9,6 @@ import { ImEye } from "react-icons/im";
 import { FaComments } from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
 
-
 import PropTypes from 'prop-types';
 
 export const ImageGalleryItem = ({ images, onSelect }) => {

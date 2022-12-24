@@ -11,7 +11,7 @@ export const GalleryItem = styled.li`
   transition: transform 250ms linear, box-shadow 250ms linear;
     &:hover{
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            transform: scale(1.08);
+            transform: scale(1.07);
             cursor: pointer;
             /* cursor: zoom-in; */
         }
