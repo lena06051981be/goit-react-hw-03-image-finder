@@ -4,8 +4,6 @@ import { Component } from "react";
 import { getImagesApi } from '../../services/ApiService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
 import Loader from "components/Loader/Loader";
 import Button from "components/Button/Button";
 import Container from './App.styled';
@@ -24,17 +22,8 @@ export class App extends Component {
     modalImgAlt: '',
   };
 
-  // simpleLightbox = () => {
-  //   var lightbox = new SimpleLightbox('.gallery a', {
-  //     captionsData: 'alt',
-  //     captionDelay: 150,
-  //   });
-  //   lightbox.refresh();
-  // };
-
   async componentDidUpdate(_, prevState) {
     const { query, page, totalPages, images } = this.state;
-    // this.simpleLightbox(); 
 
     // console.log('prevState.page: ', prevState.page);
     // console.log('this.state.page: ', this.state.page);
